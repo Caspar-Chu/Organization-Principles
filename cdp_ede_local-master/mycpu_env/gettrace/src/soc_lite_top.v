@@ -55,7 +55,7 @@ THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 //*************************************************************************
 
 
-`define INST_COE "../../../../../func/obj/inst_ram.mif"
+`define INST_COE "C:/Users/Administrator/Desktop/LA/Organization-Principles/cdp_ede_local-master/mycpu_env/func/obj/inst_ram.mif"
 
 module soc_lite_top #(parameter SIMULATION=1'b0)
 (

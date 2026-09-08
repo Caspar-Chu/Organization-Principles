@@ -32,7 +32,8 @@ THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 ------------------------------------------------------------------------------*/
 `timescale 1ns / 1ps
 
-`define TRACE_REF_FILE "../../../../../../../../gettrace/golden_trace.txt"
+// Windows Vivado: use absolute path (relative path from xsim often fails)
+`define TRACE_REF_FILE "C:/Users/Administrator/Desktop/LA/Organization-Principles/cdp_ede_local-master/mycpu_env/gettrace/golden_trace.txt"
 `define CONFREG_NUM_REG      soc_lite.u_confreg.num_data
 `define CONFREG_OPEN_TRACE   soc_lite.u_confreg.open_trace
 `define CONFREG_NUM_MONITOR  soc_lite.u_confreg.num_monitor
@@ -105,6 +106,18 @@ assign debug_wb_rf_wdata = soc_lite.debug_wb_rf_wdata;
 integer trace_ref;
 initial begin
     trace_ref = $fopen(`TRACE_REF_FILE, "r");
+    if (trace_ref == 0) begin
+        $display("==============================================================");
+        $display("ERROR: cannot open golden_trace.txt");
+        $display(" expected: %s", `TRACE_REF_FILE);
+        $display(" Fix: 1) copy ex1 mif to mycpu_env/func/obj/");
+        $display("      2) run gettrace to generate golden_trace.txt");
+        $display("==============================================================");
+        $finish;
+    end
+    else begin
+        $display("INFO: opened golden_trace.txt OK");
+    end
 end
 
 //get reference result in falling edge

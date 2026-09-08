@@ -1,0 +1,50 @@
+# macOS
+.DS_Store
+**/.DS_Store
+
+# 本地杂项 / 分发缓存
+.dist/
+
+# 远程 FPGA 适配（不需要线上上传 bit 时可忽略整个目录）
+cdp_ede_remote/
+
+# Vivado：工程生成物与日志（soc_bram 可用 create_project.tcl 重建）
+**/run_vivado/project/
+**/*.xpr.lck
+**/*.jou
+**/*.log
+**/*.str
+**/*.debug
+**/.Xil/
+**/vivado_pid*.str
+**/*.sim/
+**/*.cache/
+**/*.hw/
+**/*.ip_user_files/
+**/*.runs/
+**/*.gen/
+*.dcp
+*.pb
+
+# 比特流 / 烧录产物（远程或本地出 bit 后不必进仓库）
+*.bit
+*.bin
+*.mcs
+*.prm
+*.ltx
+
+# 仿真临时 / 波形（按需保留时可删掉下面几行）
+*.vcd
+*.wdb
+*.wcfg
+*.wdf
+
+# 编辑器 / IDE
+*.swp
+*~
+.vscode/
+.idea/
+*.code-workspace
+
+# 可选：大体积指导书 PDF（需要进仓库就删掉本行）
+# *.pdf
