@@ -36,7 +36,7 @@ wire                          fs_to_ds_valid;
 wire [`FS_TO_DS_BUS_WD -1:0]  fs_to_ds_bus;
 
 wire                          ds_to_es_valid;
-wire [`DS_TO_ES_BUS_WD -1:0]  ds_to_es_bus;ç
+wire [`DS_TO_ES_BUS_WD -1:0]  ds_to_es_bus;
 
 wire                          es_to_ms_valid;
 wire [`ES_TO_MS_BUS_WD -1:0]  es_to_ms_bus;

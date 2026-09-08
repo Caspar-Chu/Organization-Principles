@@ -77,8 +77,7 @@ assign es_to_ms_bus = {res_from_mem, // 70
                        alu_result  , // 63:32
                        es_pc         // 31:0
                       };
-
-// 访存请求在 EXE 发出，MEM 取回（匹配 BRAM 一拍延迟）
+    
 assign data_sram_en    = es_valid && (load_op || mem_we);
 assign data_sram_we    = (es_valid && mem_we) ? 4'hf : 4'h0;
 assign data_sram_addr  = alu_result;

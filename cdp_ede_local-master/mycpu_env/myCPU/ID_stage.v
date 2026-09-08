@@ -29,10 +29,10 @@ wire        ds_ready_go;
 
 wire [11:0] alu_op;
 
-wire        load_op;     // 加载信号
-wire        src1_is_pc;  // 来自src为pc地址
-wire        src2_is_imm; // src2为imm
-wire        res_from_mem;// result来自mem
+wire        load_op;
+wire        src1_is_pc;
+wire        src2_is_imm;
+wire        res_from_mem;
 wire        dst_is_r1;
 wire        gr_we;
 wire        mem_we;
@@ -45,7 +45,7 @@ wire [31:0] imm;
 wire [31:0] br_offs;
 wire [31:0] jirl_offs;
 
-// 分段
+
 wire [ 5:0] op_31_26;
 wire [ 3:0] op_25_22;
 wire [ 1:0] op_21_20;
@@ -98,7 +98,7 @@ wire [31:0] rf_rdata1;
 wire [ 4:0] rf_raddr2;
 wire [31:0] rf_rdata2;
 
-wire        rf_we; // 写使能
+wire        rf_we;
 wire [ 4:0] rf_waddr;
 wire [31:0] rf_wdata;
 
@@ -158,7 +158,6 @@ assign alu_op[ 9] = inst_srli_w;
 assign alu_op[10] = inst_srai_w;
 assign alu_op[11] = inst_lu12i_w;
 
-// 信号
 assign need_ui5  = inst_slli_w | inst_srli_w | inst_srai_w;
 assign need_si12 = inst_addi_w | inst_ld_w | inst_st_w;
 assign need_si16 = inst_jirl | inst_beq | inst_bne;
